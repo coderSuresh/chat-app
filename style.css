@@ -1,0 +1,471 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
+
+:root {
+    --sub-heading: hsl(276, 100%, 81%);
+    --chat-on-left: hsl(276, 55%, 52%);
+    --chat-on-right: hsl(271, 15%, 43%);
+    --placeholder-text: hsl(206, 6%, 79%);
+    --main-heading: hsl(271, 36%, 24%);
+    --paragraph: hsl(266, 8%, 82%);
+    --magenta: hsl(293, 100%, 63%);
+    --violet: hsl(264, 100%, 61%);
+    --white: hsl(0, 0%, 100%);
+    --app-bg: hsl(270, 20%, 96%);
+    --submit-bg: hsl(271, 36%, 24%);
+    --radio-outline: hsl(289, 100%, 72%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    width: 100%;
+    max-width: 1500px;
+    min-height: 100vh;
+    font-family: 'Rubik', sans-serif;
+    font-size: 15px;
+    overflow-x: hidden;
+}
+
+main {
+    width: 100%;
+    display: flex;
+    position: relative;
+}
+
+.left-gradient {
+    width: 22%;
+    height: 85vh;
+    background: linear-gradient(to bottom, hsl(293, 100%, 63%), hsl(264, 100%, 61%));
+    border-radius: 0 0 50% 50%;
+    transform: scaleX(1.6);
+}
+
+.right-gradient {
+    height: 85vh;
+    width: 22%;
+    background: var(--app-bg);
+    z-index: -1;
+    border-radius: 0 0 50% 50%;
+    transform: rotate(-180deg) scalex(2);
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+.container {
+    display: flex;
+    width: 80%;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.mobile {
+    height: fit-content;
+    background-color: var(--white);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    width: 31%;
+    padding: 15px;
+    border-radius: 25px;
+    position: relative;
+}
+
+.header {
+    background: linear-gradient(to left, hsl(293, 100%, 63%), hsl(264, 100%, 61%));
+    padding: 20px 0 20px;
+    border-radius: 15px 15px 7px 7px;
+}
+
+.fas, .avatar, .name {
+    margin-top: 12px;
+}
+
+.header-gap {
+    background-color: var(--white);
+    width: 50%;
+    height: 30px;
+    position: absolute;
+    top: 0;
+    left: 25%;
+    border-radius: 20px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding-top: 20px;
+}
+
+i {
+   font-size: 20px;
+   color: var(--white);
+   margin: 0 10px;
+   cursor: pointer;
+}
+
+.avatar {
+    width: 40px;
+    border-radius: 50%;
+    object-fit: contain;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.name , span {
+    color: var(--white);
+}
+
+span {
+    font-size: 0.7rem;
+    opacity: 0.7;
+    color: var(--sub-heading);
+}
+
+.menu {
+    position: absolute;
+    right: 20px;
+}
+
+.message-container {
+    padding-bottom: .5px;
+    background-color: var(--app-bg);
+    border-radius: 15px;
+}
+
+.chat {
+    width: 60%;
+    margin: 12px 37% 12px 10px;
+    background-color: var(--paragraph);
+    padding: 7px;
+    border-radius: 10px 10px 10px 3px;
+    color: var(--chat-on-left);
+    font-size: 12px;
+}
+
+.dogs {
+    width: 40px;
+    border-radius: 10px;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0 0 0 36%;;
+}
+
+.chat-right {
+    margin: 12px 10px 12px 36%;
+    right: 15px;
+    width: 60%;
+    padding: 7px;
+    color: var(--chat-on-left);
+    border-radius: 10px 10px 3px 10px;
+    background-color: var(--white);
+    color: var(--chat-on-right);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.can-you {
+    width: 70%;
+    margin-left: 28%;
+}
+
+.special {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to right, hsl(293, 100%, 63%), hsl(264, 100%, 61%));
+    color: var(--paragraph);
+    position: relative;
+}
+
+.radio {
+    margin-right: 10px;
+}
+
+.special span {
+    color: var(--white);
+    font-size: 18px;
+    position: absolute;
+    right: 15px;
+    top: 15%;
+}
+
+/* TODO: fix issue with radio button */
+input[type='radio']::after {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    top: -3px;
+    left: -2px;
+    position: relative;
+    background-color: transparent;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid hsl(289, 100%, 72%);
+}
+
+input[type='radio']:checked:after {
+    width: 14px;
+    height: 14px;
+    border-radius: 15px;
+    top: -3px;
+    left: -2px;
+    position: relative;
+    background:transparent;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid hsl(289, 100%, 72%);
+}
+
+/* End of radio button */
+
+.send {
+    width: 95%;
+    margin: 20px auto;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 30px;
+    background-color: var(--white);
+    display: flex;
+    align-items: center;
+    padding: 7px 20px;
+    justify-content: space-between;
+    position: relative;
+}
+
+.send i {
+    background-color: var(--submit-bg);
+    border-radius: 50%;
+    line-height: 40px;
+    cursor: pointer;
+    font-size: 20px;
+    width: 40px;
+    margin-top: 0;
+    margin-right: 0;
+    text-align: center;
+    position: absolute;
+    right: 5px;
+}
+
+#message {
+    outline: none;
+    border: none;
+    border-radius: 30px;
+    padding: 7px;
+    color: var(--submit-bg);
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: var(--placeholder-text);
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: var(--placeholder-text);
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: var(--placeholder-text);
+}
+
+.text {
+    width: 50%;
+    margin: auto;
+}
+
+.title {
+    font-size: 45px;
+    margin-bottom: 20px;
+    color: var(--main-heading);
+}
+
+.desc {
+    font-size: 16px;
+    width: 80%;
+    line-height: 1.5;
+    color: var(--paragraph);
+}
+
+/* responsive */
+@media (max-width: 1200px) {
+    .mobile {
+        width: 40%;
+    }
+}
+
+@media (max-width: 1010px) {
+    .mobile {
+        width: 45%;
+    }
+}
+
+@media (max-width: 940px) {
+    .mobile {
+        width: 45%;
+    }
+    .text {
+        width: 50%;
+    }
+
+    .desc {
+        width: 90%;
+    }
+}
+
+@media (max-width: 889px) {
+    main {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .container {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .mobile {
+        width: 50%;
+        margin: 5vh auto;
+    }
+
+    .left-gradient {
+        width: 40%;
+        height: 50vh;
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: -1;
+     }
+    
+    .right-gradient {
+        width: 40%;
+        height: 50vh;
+        position: fixed;
+        margin-right: -50px;
+        right: 0;
+        bottom: 0;
+    }
+
+    .text {
+        width: 100%;
+        text-align: center;
+    }
+
+    .title {
+        margin: 20px 0;
+    }
+
+    .desc {
+        width: 60%;
+        margin: auto;
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 640px) {
+    .mobile {
+        width: 55%;
+    }
+}
+
+@media (max-width: 550px) {
+    .mobile {
+        width: 65%;
+    }
+
+    .title {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 500px) {
+    .mobile {
+        width: 80%;
+    }
+
+    .desc {
+        width: 90%;
+    }
+}
+
+@media (max-width: 361px) {
+    .mobile {
+        width: 90%;
+    }
+
+    .desc {
+        width: 90%;
+    }
+
+    .title {
+        font-size: 30px;
+    }
+
+    .special span {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 330px) {
+   .chat {
+       width: 70%;
+       margin-right: 30%;
+   }
+   .chat-right {
+       width: 70%;
+       margin-left: 27%;
+   }
+}
+
+/* to support ipad pro */
+@media (max-width: 1060px) and (min-width: 1011px) {
+    .left-gradient {
+        height: 60vh;
+    }
+    .right-gradient {
+        height: 60vh;
+    }
+}
+
+/* to support device with screen width more than 1440px */
+@media (min-width: 1500px) and (max-width: 2000px) {
+    .left-gradient {
+        width: 30%;
+    }
+}
+
+@media (max-width: 2560px) and (min-width: 2000px) {
+    .left-gradient {
+        position: absolute;
+        width: 40%;
+    }
+
+    .container {
+        width: 90%;
+        margin: auto;
+    }
+
+    .mobile {
+        margin-left: 40%;
+        width: 100%;
+    }
+
+    .text {
+        width: 100%;
+        margin-left: 10%;
+    }
+
+    .desc {
+        width: 100%;
+    }
+}
