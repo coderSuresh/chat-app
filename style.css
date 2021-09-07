@@ -83,7 +83,9 @@ main {
     border-radius: 15px 15px 7px 7px;
 }
 
-.fas, .avatar, .name {
+.fas,
+.avatar,
+.name {
     margin-top: 12px;
 }
 
@@ -105,10 +107,10 @@ main {
 }
 
 i {
-   font-size: 20px;
-   color: var(--white);
-   margin: 0 10px;
-   cursor: pointer;
+    font-size: 20px;
+    color: var(--white);
+    margin: 0 10px;
+    cursor: pointer;
 }
 
 .avatar {
@@ -119,7 +121,8 @@ i {
     cursor: pointer;
 }
 
-.name , span {
+.name,
+span {
     color: var(--white);
 }
 
@@ -159,7 +162,8 @@ span {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    margin: 0 0 0 36%;;
+    margin: 0 0 0 36%;
+    ;
 }
 
 .chat-right {
@@ -191,7 +195,7 @@ span {
     margin-right: 10px;
 }
 
-.special span {
+.special .span {
     color: var(--white);
     font-size: 18px;
     position: absolute;
@@ -199,33 +203,50 @@ span {
     top: 15%;
 }
 
-/* TODO: fix issue with radio button */
-input[type='radio']::after {
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    top: -3px;
-    left: -2px;
-    position: relative;
-    background-color: transparent;
-    content: '';
-    display: inline-block;
-    visibility: visible;
-    border: 2px solid hsl(289, 100%, 72%);
+.radio p {
+    margin-left: 15px;
 }
 
-input[type='radio']:checked:after {
-    width: 14px;
-    height: 14px;
-    border-radius: 15px;
-    top: -3px;
-    left: -2px;
-    position: relative;
-    background:transparent;
+/* Custom radio button */
+
+.radio {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.radio input[type="radio"] {
+    display: none;
+}
+
+.radio>span {
+    height: 20px;
+    width: 20px;
+    border-color: var(--radio-outline);
+    border-radius: 50%;
+    border: 3px solid;
+    position: absolute;
+    left: 5px;
+    cursor: pointer;
+}
+
+.radio span::after {
     content: '';
-    display: inline-block;
-    visibility: visible;
-    border: 2px solid hsl(289, 100%, 72%);
+    height: 10px;
+    width: 10px;
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    transform: scale(0);
+    background-color: #fff;
+    border-radius: 50%;
+    transition: 0.5s ease-in-out;
+}
+
+.radio input[type="radio"]:checked~span::after {
+    top: 15%;
+    left: 15%;
+    transform: scale(1);
 }
 
 /* End of radio button */
@@ -265,17 +286,21 @@ input[type='radio']:checked:after {
     color: var(--submit-bg);
 }
 
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: var(--placeholder-text);
-  opacity: 1; /* Firefox */
+::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: var(--placeholder-text);
+    opacity: 1;
+    /* Firefox */
 }
 
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
-  color: var(--placeholder-text);
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: var(--placeholder-text);
 }
 
-::-ms-input-placeholder { /* Microsoft Edge */
-  color: var(--placeholder-text);
+::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: var(--placeholder-text);
 }
 
 .text {
@@ -313,6 +338,7 @@ input[type='radio']:checked:after {
     .mobile {
         width: 45%;
     }
+
     .text {
         width: 50%;
     }
@@ -345,8 +371,8 @@ input[type='radio']:checked:after {
         left: 0;
         top: 0;
         z-index: -1;
-     }
-    
+    }
+
     .right-gradient {
         width: 40%;
         height: 50vh;
@@ -417,14 +443,15 @@ input[type='radio']:checked:after {
 }
 
 @media (max-width: 330px) {
-   .chat {
-       width: 70%;
-       margin-right: 30%;
-   }
-   .chat-right {
-       width: 70%;
-       margin-left: 27%;
-   }
+    .chat {
+        width: 70%;
+        margin-right: 30%;
+    }
+
+    .chat-right {
+        width: 70%;
+        margin-left: 27%;
+    }
 }
 
 /* to support ipad pro */
@@ -432,6 +459,7 @@ input[type='radio']:checked:after {
     .left-gradient {
         height: 60vh;
     }
+
     .right-gradient {
         height: 60vh;
     }
